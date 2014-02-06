@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BCDF050818A3A0560063CE32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF050718A3A0560063CE32 /* Foundation.framework */; };
+		BCDF050A18A3A0560063CE32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF050918A3A0560063CE32 /* CoreGraphics.framework */; };
+		BCDF050C18A3A0560063CE32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF050B18A3A0560063CE32 /* UIKit.framework */; };
+		BCDF051218A3A0560063CE32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCDF051018A3A0560063CE32 /* InfoPlist.strings */; };
+		BCDF051418A3A0560063CE32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDF051318A3A0560063CE32 /* main.m */; };
+		BCDF051818A3A0560063CE32 /* SNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDF051718A3A0560063CE32 /* SNAppDelegate.m */; };
+		BCDF051B18A3A0560063CE32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCDF051918A3A0560063CE32 /* Main.storyboard */; };
+		BCDF051E18A3A0560063CE32 /* SNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDF051D18A3A0560063CE32 /* SNViewController.m */; };
+		BCDF052018A3A0560063CE32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCDF051F18A3A0560063CE32 /* Images.xcassets */; };
+		BCDF052718A3A0560063CE32 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF052618A3A0560063CE32 /* XCTest.framework */; };
+		BCDF052818A3A0560063CE32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF050718A3A0560063CE32 /* Foundation.framework */; };
+		BCDF052918A3A0560063CE32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF050B18A3A0560063CE32 /* UIKit.framework */; };
+		BCDF053118A3A0560063CE32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCDF052F18A3A0560063CE32 /* InfoPlist.strings */; };
+		BCDF053318A3A0560063CE32 /* LocalNotificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDF053218A3A0560063CE32 /* LocalNotificationTests.m */; };
+		BCDF053D18A3B98D0063CE32 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF053C18A3B98D0063CE32 /* AddressBook.framework */; };
+		BCDF053F18A3B9B80063CE32 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF053E18A3B9B80063CE32 /* AddressBookUI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCDF052A18A3A0560063CE32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCDF04FC18A3A0560063CE32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCDF050318A3A0560063CE32;
+			remoteInfo = LocalNotification;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BCDF050418A3A0560063CE32 /* FetchiCow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchiCow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCDF050718A3A0560063CE32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BCDF050918A3A0560063CE32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BCDF050B18A3A0560063CE32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BCDF050F18A3A0560063CE32 /* FetchiCow-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FetchiCow-Info.plist"; sourceTree = "<group>"; };
+		BCDF051118A3A0560063CE32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCDF051318A3A0560063CE32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BCDF051518A3A0560063CE32 /* FetchiCow-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FetchiCow-Prefix.pch"; sourceTree = "<group>"; };
+		BCDF051618A3A0560063CE32 /* SNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNAppDelegate.h; sourceTree = "<group>"; };
+		BCDF051718A3A0560063CE32 /* SNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNAppDelegate.m; sourceTree = "<group>"; };
+		BCDF051A18A3A0560063CE32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCDF051C18A3A0560063CE32 /* SNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNViewController.h; sourceTree = "<group>"; };
+		BCDF051D18A3A0560063CE32 /* SNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNViewController.m; sourceTree = "<group>"; };
+		BCDF051F18A3A0560063CE32 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BCDF052518A3A0560063CE32 /* FetchiCowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchiCowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCDF052618A3A0560063CE32 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BCDF052E18A3A0560063CE32 /* FetchiCowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FetchiCowTests-Info.plist"; sourceTree = "<group>"; };
+		BCDF053018A3A0560063CE32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCDF053218A3A0560063CE32 /* LocalNotificationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationTests.m; sourceTree = "<group>"; };
+		BCDF053C18A3B98D0063CE32 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		BCDF053E18A3B9B80063CE32 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCDF050118A3A0560063CE32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDF053F18A3B9B80063CE32 /* AddressBookUI.framework in Frameworks */,
+				BCDF053D18A3B98D0063CE32 /* AddressBook.framework in Frameworks */,
+				BCDF050A18A3A0560063CE32 /* CoreGraphics.framework in Frameworks */,
+				BCDF050C18A3A0560063CE32 /* UIKit.framework in Frameworks */,
+				BCDF050818A3A0560063CE32 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCDF052218A3A0560063CE32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDF052718A3A0560063CE32 /* XCTest.framework in Frameworks */,
+				BCDF052918A3A0560063CE32 /* UIKit.framework in Frameworks */,
+				BCDF052818A3A0560063CE32 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BCDF04FB18A3A0560063CE32 = {
+			isa = PBXGroup;
+			children = (
+				BCDF050D18A3A0560063CE32 /* LocalNotification */,
+				BCDF052C18A3A0560063CE32 /* LocalNotificationTests */,
+				BCDF050618A3A0560063CE32 /* Frameworks */,
+				BCDF050518A3A0560063CE32 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCDF050518A3A0560063CE32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCDF050418A3A0560063CE32 /* FetchiCow.app */,
+				BCDF052518A3A0560063CE32 /* FetchiCowTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCDF050618A3A0560063CE32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCDF053E18A3B9B80063CE32 /* AddressBookUI.framework */,
+				BCDF053C18A3B98D0063CE32 /* AddressBook.framework */,
+				BCDF050718A3A0560063CE32 /* Foundation.framework */,
+				BCDF050918A3A0560063CE32 /* CoreGraphics.framework */,
+				BCDF050B18A3A0560063CE32 /* UIKit.framework */,
+				BCDF052618A3A0560063CE32 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCDF050D18A3A0560063CE32 /* LocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				BCDF051618A3A0560063CE32 /* SNAppDelegate.h */,
+				BCDF051718A3A0560063CE32 /* SNAppDelegate.m */,
+				BCDF051918A3A0560063CE32 /* Main.storyboard */,
+				BCDF051C18A3A0560063CE32 /* SNViewController.h */,
+				BCDF051D18A3A0560063CE32 /* SNViewController.m */,
+				BCDF051F18A3A0560063CE32 /* Images.xcassets */,
+				BCDF050E18A3A0560063CE32 /* Supporting Files */,
+			);
+			path = LocalNotification;
+			sourceTree = "<group>";
+		};
+		BCDF050E18A3A0560063CE32 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCDF050F18A3A0560063CE32 /* FetchiCow-Info.plist */,
+				BCDF051018A3A0560063CE32 /* InfoPlist.strings */,
+				BCDF051318A3A0560063CE32 /* main.m */,
+				BCDF051518A3A0560063CE32 /* FetchiCow-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCDF052C18A3A0560063CE32 /* LocalNotificationTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCDF053218A3A0560063CE32 /* LocalNotificationTests.m */,
+				BCDF052D18A3A0560063CE32 /* Supporting Files */,
+			);
+			path = LocalNotificationTests;
+			sourceTree = "<group>";
+		};
+		BCDF052D18A3A0560063CE32 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCDF052E18A3A0560063CE32 /* FetchiCowTests-Info.plist */,
+				BCDF052F18A3A0560063CE32 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCDF050318A3A0560063CE32 /* FetchiCow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCDF053618A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCow" */;
+			buildPhases = (
+				BCDF050018A3A0560063CE32 /* Sources */,
+				BCDF050118A3A0560063CE32 /* Frameworks */,
+				BCDF050218A3A0560063CE32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FetchiCow;
+			productName = LocalNotification;
+			productReference = BCDF050418A3A0560063CE32 /* FetchiCow.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCDF052418A3A0560063CE32 /* FetchiCowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCDF053918A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCowTests" */;
+			buildPhases = (
+				BCDF052118A3A0560063CE32 /* Sources */,
+				BCDF052218A3A0560063CE32 /* Frameworks */,
+				BCDF052318A3A0560063CE32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCDF052B18A3A0560063CE32 /* PBXTargetDependency */,
+			);
+			name = FetchiCowTests;
+			productName = LocalNotificationTests;
+			productReference = BCDF052518A3A0560063CE32 /* FetchiCowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCDF04FC18A3A0560063CE32 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SN;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = SourceN;
+				TargetAttributes = {
+					BCDF052418A3A0560063CE32 = {
+						TestTargetID = BCDF050318A3A0560063CE32;
+					};
+				};
+			};
+			buildConfigurationList = BCDF04FF18A3A0560063CE32 /* Build configuration list for PBXProject "FetchiCow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCDF04FB18A3A0560063CE32;
+			productRefGroup = BCDF050518A3A0560063CE32 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCDF050318A3A0560063CE32 /* FetchiCow */,
+				BCDF052418A3A0560063CE32 /* FetchiCowTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCDF050218A3A0560063CE32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDF052018A3A0560063CE32 /* Images.xcassets in Resources */,
+				BCDF051218A3A0560063CE32 /* InfoPlist.strings in Resources */,
+				BCDF051B18A3A0560063CE32 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCDF052318A3A0560063CE32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDF053118A3A0560063CE32 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCDF050018A3A0560063CE32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDF051418A3A0560063CE32 /* main.m in Sources */,
+				BCDF051E18A3A0560063CE32 /* SNViewController.m in Sources */,
+				BCDF051818A3A0560063CE32 /* SNAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCDF052118A3A0560063CE32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDF053318A3A0560063CE32 /* LocalNotificationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCDF052B18A3A0560063CE32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCDF050318A3A0560063CE32 /* FetchiCow */;
+			targetProxy = BCDF052A18A3A0560063CE32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BCDF051018A3A0560063CE32 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCDF051118A3A0560063CE32 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BCDF051918A3A0560063CE32 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCDF051A18A3A0560063CE32 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BCDF052F18A3A0560063CE32 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCDF053018A3A0560063CE32 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BCDF053418A3A0560063CE32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BCDF053518A3A0560063CE32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCDF053718A3A0560063CE32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ranganatha G V (VQY8F4L8AX)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LocalNotification/FetchiCow-Prefix.pch";
+				INFOPLIST_FILE = "LocalNotification/FetchiCow-Info.plist";
+				PRODUCT_NAME = FetchiCow;
+				PROVISIONING_PROFILE = "5BEBBBEE-7B96-49FA-875C-99D5C9F5A729";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BCDF053818A3A0560063CE32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ranganatha G V (VQY8F4L8AX)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LocalNotification/FetchiCow-Prefix.pch";
+				INFOPLIST_FILE = "LocalNotification/FetchiCow-Info.plist";
+				PRODUCT_NAME = FetchiCow;
+				PROVISIONING_PROFILE = "5BEBBBEE-7B96-49FA-875C-99D5C9F5A729";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BCDF053A18A3A0560063CE32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LocalNotification.app/LocalNotification";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LocalNotification/LocalNotification-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LocalNotificationTests/FetchiCowTests-Info.plist";
+				PRODUCT_NAME = FetchiCowTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BCDF053B18A3A0560063CE32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LocalNotification.app/LocalNotification";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LocalNotification/LocalNotification-Prefix.pch";
+				INFOPLIST_FILE = "LocalNotificationTests/FetchiCowTests-Info.plist";
+				PRODUCT_NAME = FetchiCowTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCDF04FF18A3A0560063CE32 /* Build configuration list for PBXProject "FetchiCow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCDF053418A3A0560063CE32 /* Debug */,
+				BCDF053518A3A0560063CE32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCDF053618A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCDF053718A3A0560063CE32 /* Debug */,
+				BCDF053818A3A0560063CE32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCDF053918A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCDF053A18A3A0560063CE32 /* Debug */,
+				BCDF053B18A3A0560063CE32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BCDF04FC18A3A0560063CE32 /* Project object */;
+}
