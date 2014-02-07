@@ -12,6 +12,7 @@
 {
     NSDate *dateTime;
     NSMutableArray *allContactsArray;
+    NSMutableArray *searchContactsArray;
 }
 
 @end
@@ -24,16 +25,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     allContactsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    //find the UITextField view within searchBar (outlet to UISearchBar)
-    //and assign self as delegate
-    for (UIView *view in _contactSearchBar.subviews){
-        if ([view isKindOfClass: [UITextField class]]) {
-            UITextField *tf = (UITextField *)view;
-            tf.delegate = self;
-            break;
-        }
-    }
+    searchContactsArray = [[NSMutableArray alloc] initWithCapacity:0];
     
     // Get contacts
     [self getContacts];
@@ -91,7 +83,6 @@
     
     for( int i=0;i<number;i++)
     {
-        NSMutableDictionary *eachPerson =  [NSMutableDictionary dictionaryWithCapacity:0];
         ABRecordRef person = CFArrayGetValueAtIndex(sortedPeople, i);
         firstName = (__bridge NSString *) ABRecordCopyValue(person, kABPersonFirstNameProperty);
         
@@ -100,13 +91,14 @@
          NSLog(@"First Name %@", firstName);
         if(phoneNumber != NULL)
         {
-            [eachPerson setValue:firstName forKey:@"firstName"];
-            [eachPerson setValue:phoneNumber forKey:@"phoneNumber"];
-            [allContactsArray addObject:eachPerson];
+            SNContacts *contact = [[SNContacts alloc] init];
+            [contact setContactFirstName:firstName];
+            [contact setContactNumber:phoneNumber];
+            
+            [allContactsArray addObject:contact];
         }
     }
     
-    NSLog(@"fetched contatcs count -%lu- %@", allContactsArray.count, allContactsArray);
     [_contactsTable reloadData];
 }
 
@@ -119,8 +111,17 @@
                                       reuseIdentifier:CellIdentifier];
     }
     
+    SNContacts *contact;
+    if ([searchContactsArray count] > 0)
+        contact = [searchContactsArray objectAtIndex:indexPath.row];
+    else
+        contact = [allContactsArray objectAtIndex:indexPath.row];
+    
     UILabel *contactNameLbl = (UILabel *)[cell viewWithTag:1];
-    contactNameLbl.text = [[allContactsArray objectAtIndex:indexPath.row] valueForKey:@"firstName"];
+    contactNameLbl.text = contact.contactFirstName;
+    
+    UILabel *imgLbl = (UILabel *)[cell viewWithTag:2];
+    imgLbl.text = [contactNameLbl.text substringToIndex:1];
     
     return cell;
 }
@@ -130,6 +131,9 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([searchContactsArray count] > 0) {
+        return [searchContactsArray count];
+    }
     return [allContactsArray count];
 }
 
@@ -149,8 +153,16 @@
 // Return the index for the location of the first item in an array that begins with a certain character
 - (NSInteger)indexForFirstChar:(NSString *)character inArray:(NSArray *)array
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     NSUInteger count = 0;
-    for (NSString *str in [array valueForKey:@"firstName"]) {
+    
+    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i = 0; i < [array count]; i++) {
+        SNContacts *contact = [allContactsArray objectAtIndex:i];
+        [tempArray addObject:contact.contactFirstName];
+    }
+    
+    for (NSString *str in tempArray) {
         if ([str hasPrefix:character]) {
             return count;
         }
@@ -160,10 +172,29 @@
 }
 
 
+-(void)searchString:(NSString *)searchString {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [searchContactsArray removeAllObjects];
+    for (int i = 0; i < [allContactsArray count]; i++) {
+        SNContacts *contact = [allContactsArray objectAtIndex:i];
+        NSLog(@"Search %@ in contact %@", searchString, contact.contactFirstName);
+        if ([[contact.contactFirstName lowercaseString] hasPrefix:[searchString lowercaseString]]) {
+            NSLog(@"matching name %@", contact.contactFirstName);
+            [searchContactsArray addObject:contact];
+        }
+    }
+    [_contactsTable reloadData];
+}
+
 #pragma mark - Tableview Delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_contactSearchBar resignFirstResponder];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[[allContactsArray objectAtIndex:indexPath.row] valueForKey:@"firstName"] message:[[allContactsArray objectAtIndex:indexPath.row] valueForKey:@"phoneNumber"] delegate:Nil cancelButtonTitle:@"Don't Call" otherButtonTitles: @"Call", nil];
+    SNContacts *contact;
+    if ([searchContactsArray count] > 0)
+        contact = [searchContactsArray objectAtIndex:indexPath.row];
+    else
+        contact = [allContactsArray objectAtIndex:indexPath.row];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:contact.contactFirstName message:contact.contactNumber delegate:Nil cancelButtonTitle:@"Don't Call" otherButtonTitles: @"Call", nil];
     [alert show];
 }
 
@@ -175,8 +206,8 @@
 
 #pragma mark - TextField Delegate Methods
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
+-(BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     BOOL isBackButton;
     
     if (range.location != NSNotFound)
@@ -201,45 +232,38 @@
     
     if (isBackButton)
     {
-        NSString *str = [NSString stringWithFormat:@"%@", [textField.text stringByTrimmingCharactersInSet:whitespace]];
+        NSString *str = [NSString stringWithFormat:@"%@", [searchBar.text stringByTrimmingCharactersInSet:whitespace]];
         //LogTrace(@"str length %d", [[str substringToIndex:[str length]-1] length]);
         if ( [str length] > 1)
         {
+            [self searchString:[str substringToIndex:[str length]-1]];
             // [str substringToIndex:[str length]-1]
-           
+            
         }
         else if ([str length] > 0 && [str length] == 1){
-            
+            [self searchString:str];
         }
     }
     else
     {
-        NSString *str = [[NSString stringWithFormat:@"%@%@", textField.text, string] stringByTrimmingCharactersInSet:whitespace];
+        NSString *str = [[NSString stringWithFormat:@"%@%@", searchBar.text, text] stringByTrimmingCharactersInSet:whitespace];
         if ([str length] > 0)
         {
-            
+            [self searchString:str];
         }
     }
     return YES;
 }
 
-- (BOOL)textFieldShouldClear:(UITextField *)textField
-{
-    // On clearing text
-    [_contactsTable reloadData];
-    return YES;
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    if ([searchBar.text length] == 0) {
+        NSLog(@"%s", __PRETTY_FUNCTION__);
+        // On clearing text
+        [searchContactsArray removeAllObjects];
+        [_contactsTable reloadData];
+    }
 }
-
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    
-}
-
 
 
 /*
