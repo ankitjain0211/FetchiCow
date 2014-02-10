@@ -8,21 +8,38 @@
 
 #import "SNViewController.h"
 
+
 @interface SNViewController ()
 {
     NSDate *dateTime;
     NSMutableArray *allContactsArray;
     NSMutableArray *searchContactsArray;
+    NSString *callToNumber;
+    NSArray *alphabeticArray;
 }
+
+@property (nonatomic, weak) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIView *alphabeticView;
 
 @end
 
 @implementation SNViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"NAVIGATE_BACK"] isEqualToString:@"YES"]) {
+        SNLogTrace(@"%s", __PRETTY_FUNCTION__);
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Test" message:[NSString stringWithFormat:@"Inside ViewDidLoad"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
 - (void)viewDidLoad
 {
+    SNLogTrace(@"%s", __PRETTY_FUNCTION__);
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+     alphabeticArray = [NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z", nil];
     
     allContactsArray = [[NSMutableArray alloc] initWithCapacity:0];
     searchContactsArray = [[NSMutableArray alloc] initWithCapacity:0];
@@ -68,66 +85,327 @@
 }
 
 - (void)addContactToAddressBook {
-    
     CFErrorRef *error = NULL;
-    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL,error);
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, error);
+    CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(addressBook, nil, kABPersonSortByFirstName);
+    CFIndex numberOfPeople = ABAddressBookGetPersonCount(addressBook);
     
-    ABRecordRef source = ABAddressBookCopyDefaultSource(addressBook);
-    CFArrayRef sortedPeople =ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(addressBook, source, kABPersonSortByFirstName);
-    
-    //RETRIEVING THE FIRST NAME AND PHONE NUMBER FROM THE ADDRESS BOOK
-    
-    CFIndex number = CFArrayGetCount(sortedPeople);
-    NSString *firstName;
-    NSString *phoneNumber ;
-    
-    for( int i=0;i<number;i++)
-    {
-        ABRecordRef person = CFArrayGetValueAtIndex(sortedPeople, i);
-        firstName = (__bridge NSString *) ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    for(int i = 0; i < numberOfPeople; i++) {
         
-        ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
-        phoneNumber = (__bridge NSString *) ABMultiValueCopyValueAtIndex(phones, 0);
-         NSLog(@"First Name %@", firstName);
+        ABRecordRef person = CFArrayGetValueAtIndex( allPeople, i );
+        
+        NSString *firstName = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonCompositeNameFormatFirstNameFirst));
+        NSData  *imgData = (__bridge_transfer NSData *) ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail);
+        //NSString *lastName = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonLastNameProperty));
+        //NSLog(@"\n Name:%@ ", firstName);
+        
+        ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+        
+        NSString *phoneNumber = (__bridge NSString *) ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
         if(phoneNumber != NULL)
         {
             SNContacts *contact = [[SNContacts alloc] init];
             [contact setContactFirstName:firstName];
             [contact setContactNumber:phoneNumber];
+            [contact setContactImage:imgData];
             
             [allContactsArray addObject:contact];
         }
+        
+       
     }
     
-    [_contactsTable reloadData];
+    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i = 0; i < [allContactsArray count]; i++) {
+        SNContacts *contact = [allContactsArray objectAtIndex:i];
+        [tempArray addObject:contact.contactFirstName];
+    }
+    
+    NSMutableArray *tempArray1 = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i = 0; i < [alphabeticArray count]; i++) {
+        for (NSString *str in tempArray) {
+            if ([str hasPrefix:[alphabeticArray objectAtIndex:i]]) {
+                [tempArray1 addObject:[alphabeticArray objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    
+    [self addButtonsOnAlphabeticViewAndSkip:tempArray1];
 }
+
+- (NSArray *)rightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
+                                                title:@"More"];
+    //[rightUtilityButtons sw_addUtilityButtonWithColor:
+     //[UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f] title:@"Favorite"];
+    
+    return rightUtilityButtons;
+}
+
+- (NSArray *)leftButtons
+{
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"check.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"clock.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"cross.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.55f green:0.27f blue:0.07f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"list.png"]];
+    
+    return leftUtilityButtons;
+}
+
+#pragma mark - SWTableViewDelegate
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            SNLogTrace(@"left button 0 was pressed");
+            break;
+        case 1:
+            SNLogTrace(@"left button 1 was pressed");
+            break;
+        case 2:
+            SNLogTrace(@"left button 2 was pressed");
+            break;
+        case 3:
+            SNLogTrace(@"left btton 3 was pressed");
+        default:
+            break;
+    }
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+        {
+            // Delete button was pressed
+            NSIndexPath *cellIndexPath = [self.contactsTable indexPathForCell:cell];
+            SNContacts *contact;
+            if ([searchContactsArray count] > 0)
+                contact = [searchContactsArray objectAtIndex:cellIndexPath.row];
+            else
+                contact = [allContactsArray objectAtIndex:cellIndexPath.row];
+            
+            callToNumber = contact.contactNumber;
+            
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:Nil delegate:self cancelButtonTitle:@"DONE" destructiveButtonTitle:Nil otherButtonTitles:@"CALL", @"MESSAGE", nil];
+            [actionSheet showInView:self.view];
+            
+            [cell hideUtilityButtonsAnimated:YES];
+            break;
+        }
+        case 1:
+        {
+            SNLogTrace(@"Delete button was pressed");
+            UIAlertView *alertTest = [[UIAlertView alloc] initWithTitle:@"Hello" message:@"Delete Delete Delete" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles: nil];
+            [alertTest show];
+            
+            [cell hideUtilityButtonsAnimated:YES];
+        }
+        default:
+            break;
+    }
+}
+
+- (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell {
+    return YES;
+}
+
+#pragma mark - Actionsheet Delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    SNLogTrace(@"Button index %ld", (long)buttonIndex);
+    switch (buttonIndex) {
+        case 0:
+        {
+            NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"tel://%@",callToNumber]];
+            [[UIApplication sharedApplication] openURL:url];
+        }
+        break;
+        
+        case 1:
+        {
+            if([MFMessageComposeViewController canSendText]) {
+                MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+                controller.body = @"";
+                [controller setRecipients:[NSArray arrayWithObject:callToNumber]];
+                controller.messageComposeDelegate = self;
+                [self presentViewController:controller animated:YES completion:nil];
+            }else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TaxiForSure" message:@"You cannot send SMS from this device" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert show];
+            }
+        }
+        break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - MessageViewController delegates
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    switch (result) {
+        case MessageComposeResultCancelled:
+        {
+            //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cancelled" message:@"User cancelled sending the SMS"
+            //                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            //            [alert show];
+        }
+            break;
+        case MessageComposeResultFailed:
+        {
+            //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed" message:@"Error occured while sending the SMS"
+            //                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            //            [alert show];
+        }
+            break;
+        case MessageComposeResultSent:
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TaxiForSure" message:@"Message sent successfully"
+                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 #pragma mark - Tableview Data Source
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *CellIdentifier = @"customeCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:CellIdentifier];
-    }
+    
+    UMTableViewCell *cell = [self.contactsTable dequeueReusableCellWithIdentifier:@"UMCell" forIndexPath:indexPath];
+    
+    UMTableViewCell __weak *weakCell = cell;
+    
+    [cell setAppearanceWithBlock:^{
+        //weakCell.leftUtilityButtons = [self leftButtons];
+        weakCell.rightUtilityButtons = [self rightButtons];
+        weakCell.delegate = self;
+        weakCell.containingTableView = tableView;
+    } force:NO];
+    
+    [cell setCellHeight:cell.frame.size.height];
     
     SNContacts *contact;
     if ([searchContactsArray count] > 0)
         contact = [searchContactsArray objectAtIndex:indexPath.row];
     else
         contact = [allContactsArray objectAtIndex:indexPath.row];
-    
-    UILabel *contactNameLbl = (UILabel *)[cell viewWithTag:1];
+
+    UILabel *contactNameLbl = (UILabel *)[cell.contentView viewWithTag:1];
+    //contactNameLbl.text = [allContactsArray objectAtIndex:indexPath.row];
     contactNameLbl.text = contact.contactFirstName;
     
-    UILabel *imgLbl = (UILabel *)[cell viewWithTag:2];
-    imgLbl.text = [contactNameLbl.text substringToIndex:1];
+    UILabel *imgLbl = (UILabel *)[cell.contentView viewWithTag:2];
+    UITapGestureRecognizer *imgTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped)];
+    [imgTap setNumberOfTapsRequired:1];
+    [imgLbl setUserInteractionEnabled:YES];
+    [imgLbl addGestureRecognizer:imgTap];
+    imgLbl.text = [[contactNameLbl.text substringToIndex:1] uppercaseString];
     
+    if (contact.contactImage && [contact.contactImage length] > 0) {
+        UIImageView *contactBgImage = (UIImageView *)[cell.contentView viewWithTag:3];
+        [contactBgImage setImage:[UIImage imageWithData:contact.contactImage]];
+        contactBgImage.layer.cornerRadius = contactBgImage.bounds.size.width / 2;
+        [self applyTwoCornerMask:contactBgImage.layer withRadius:15];
+        [imgLbl setHidden:YES];
+    } else {
+        UIImageView *contactBgImage = (UIImageView *)[cell.contentView viewWithTag:3];
+        [contactBgImage setImage:[UIImage imageNamed:@"circle"]];
+        [imgLbl setHidden:NO];
+    }
+    
+
     return cell;
+}
+-(void) applyTwoCornerMask: (CALayer *) layer withRadius: (CGFloat) radius {
+    CAShapeLayer *mask = [CAShapeLayer layer];
+    mask.frame = layer.bounds;
+    [mask setFillColor:[[UIColor blackColor] CGColor]];
+    
+    CGFloat width = layer.bounds.size.width;
+    CGFloat height = layer.bounds.size.height;
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, width, 0);
+    CGPathAddLineToPoint(path, NULL, width, height - radius);
+    CGPathAddCurveToPoint(path, NULL, width, height, width - radius, height, width - radius, height);
+    CGPathAddLineToPoint(path, NULL, 0, height);
+    CGPathAddLineToPoint(path, NULL, 0, radius);
+    CGPathAddCurveToPoint(path, NULL, 0, 0, radius, 0, radius, 0);
+    CGPathCloseSubpath(path);
+    [mask setPath:path];
+    CGPathRelease(path);
+    
+    layer.mask = mask;
+}
+
+-(void)imageTapped{
+    SNLogTrace(@"%s", __PRETTY_FUNCTION__);
+    if ([searchContactsArray count] > 0) {
+        return;
+    }
+    [self.alphabeticView setHidden:NO];
+}
+
+- (void)alphabetTapped:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    SNLogTrace(@"Alphabetic tapped was %@", btn.titleLabel.text);
+    NSInteger newRow = [self indexForFirstChar:btn.titleLabel.text inArray:allContactsArray];
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:newRow inSection:0];
+    [_contactsTable scrollToRowAtIndexPath:newIndexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+    [self.alphabeticView setHidden:YES];
+}
+
+-(void)addButtonsOnAlphabeticViewAndSkip:(NSArray *)alphabeticArray1
+{
+    SNLogTrace(@"%s", __PRETTY_FUNCTION__);
+    int yValue = 20;
+    int xValue = -64;
+    
+    for (int i = 0; i < [alphabeticArray1 count]; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"circle"] forState:UIControlStateNormal];
+        [button addTarget:self
+                   action:@selector(alphabetTapped:)
+         forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:[alphabeticArray1 objectAtIndex:i] forState:UIControlStateNormal];
+        
+        if (i%4 == 0 && i != 0) {
+            //SNLogTrace(@"if loop having i value %d", i);
+            xValue = 13;
+            yValue = yValue + 64 + 6;
+        } else {
+            //SNLogTrace(@"else loop having i value %d", i);
+            xValue = xValue + 64 + 13;
+        }
+        
+        button.frame = CGRectMake(xValue, yValue, 64.0f, 64.0f);
+        [self.alphabeticView addSubview:button];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44.0f;
+    return 60.0f;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -153,7 +431,7 @@
 // Return the index for the location of the first item in an array that begins with a certain character
 - (NSInteger)indexForFirstChar:(NSString *)character inArray:(NSArray *)array
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    SNLogTrace(@"%s", __PRETTY_FUNCTION__);
     NSUInteger count = 0;
     
     NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:0];
@@ -173,29 +451,17 @@
 
 
 -(void)searchString:(NSString *)searchString {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    SNLogTrace(@"%s", __PRETTY_FUNCTION__);
     [searchContactsArray removeAllObjects];
     for (int i = 0; i < [allContactsArray count]; i++) {
         SNContacts *contact = [allContactsArray objectAtIndex:i];
-        NSLog(@"Search %@ in contact %@", searchString, contact.contactFirstName);
+        SNLogTrace(@"Search %@ in contact %@", searchString, contact.contactFirstName);
         if ([[contact.contactFirstName lowercaseString] hasPrefix:[searchString lowercaseString]]) {
-            NSLog(@"matching name %@", contact.contactFirstName);
+            SNLogTrace(@"matching name %@", contact.contactFirstName);
             [searchContactsArray addObject:contact];
         }
     }
     [_contactsTable reloadData];
-}
-
-#pragma mark - Tableview Delegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [_contactSearchBar resignFirstResponder];
-    SNContacts *contact;
-    if ([searchContactsArray count] > 0)
-        contact = [searchContactsArray objectAtIndex:indexPath.row];
-    else
-        contact = [allContactsArray objectAtIndex:indexPath.row];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:contact.contactFirstName message:contact.contactNumber delegate:Nil cancelButtonTitle:@"Don't Call" otherButtonTitles: @"Call", nil];
-    [alert show];
 }
 
 #pragma mark - Searchbar Delegate 
@@ -204,10 +470,8 @@
     [searchBar resignFirstResponder];
 }
 
-#pragma mark - TextField Delegate Methods
-
 -(BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    SNLogTrace(@"%s", __PRETTY_FUNCTION__);
     BOOL isBackButton;
     
     if (range.location != NSNotFound)
@@ -254,11 +518,19 @@
     }
     return YES;
 }
+-(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    searchBar.showsCancelButton = YES;
+    return YES;
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    searchBar.showsCancelButton = NO;
+}
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    SNLogTrace(@"%s", __PRETTY_FUNCTION__);
     if ([searchBar.text length] == 0) {
-        NSLog(@"%s", __PRETTY_FUNCTION__);
+        SNLogTrace(@"%s", __PRETTY_FUNCTION__);
         // On clearing text
         [searchContactsArray removeAllObjects];
         [_contactsTable reloadData];

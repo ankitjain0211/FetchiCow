@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC3463AE18A8A2CD00CA2A80 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = BC34639F18A8A2CD00CA2A80 /* NSMutableArray+SWUtilityButtons.m */; };
+		BC3463AF18A8A2CD00CA2A80 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3463A118A8A2CD00CA2A80 /* SWCellScrollView.m */; };
+		BC3463B018A8A2CD00CA2A80 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3463A318A8A2CD00CA2A80 /* SWLongPressGestureRecognizer.m */; };
+		BC3463B118A8A2CD00CA2A80 /* SWTableViewCell-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC3463A418A8A2CD00CA2A80 /* SWTableViewCell-Info.plist */; };
+		BC3463B218A8A2CD00CA2A80 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3463A718A8A2CD00CA2A80 /* SWTableViewCell.m */; };
+		BC3463B318A8A2CD00CA2A80 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3463A918A8A2CD00CA2A80 /* SWUtilityButtonTapGestureRecognizer.m */; };
+		BC3463B418A8A2CD00CA2A80 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3463AB18A8A2CD00CA2A80 /* SWUtilityButtonView.m */; };
+		BC3463B518A8A2CD00CA2A80 /* UMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3463AD18A8A2CD00CA2A80 /* UMTableViewCell.m */; };
+		BC3463B918A8F72100CA2A80 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3463B818A8F72100CA2A80 /* QuartzCore.framework */; };
+		BC3463FC18A90D3900CA2A80 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC3463FB18A90D3900CA2A80 /* Icon@2x.png */; };
+		BC477C0718A4D9F100EA6E2F /* SNContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = BC477C0618A4D9F100EA6E2F /* SNContacts.m */; };
+		BC477C0A18A4D9FC00EA6E2F /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC477C0918A4D9FC00EA6E2F /* circle@2x.png */; };
 		BCDF050818A3A0560063CE32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF050718A3A0560063CE32 /* Foundation.framework */; };
 		BCDF050A18A3A0560063CE32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF050918A3A0560063CE32 /* CoreGraphics.framework */; };
 		BCDF050C18A3A0560063CE32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDF050B18A3A0560063CE32 /* UIKit.framework */; };
@@ -36,23 +48,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BCDF050418A3A0560063CE32 /* FetchiCow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchiCow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC34639D18A8A2CD00CA2A80 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		BC34639E18A8A2CD00CA2A80 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		BC34639F18A8A2CD00CA2A80 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		BC3463A018A8A2CD00CA2A80 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
+		BC3463A118A8A2CD00CA2A80 /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
+		BC3463A218A8A2CD00CA2A80 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		BC3463A318A8A2CD00CA2A80 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		BC3463A418A8A2CD00CA2A80 /* SWTableViewCell-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SWTableViewCell-Info.plist"; sourceTree = "<group>"; };
+		BC3463A518A8A2CD00CA2A80 /* SWTableViewCell-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWTableViewCell-Prefix.pch"; sourceTree = "<group>"; };
+		BC3463A618A8A2CD00CA2A80 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		BC3463A718A8A2CD00CA2A80 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		BC3463A818A8A2CD00CA2A80 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		BC3463A918A8A2CD00CA2A80 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		BC3463AA18A8A2CD00CA2A80 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
+		BC3463AB18A8A2CD00CA2A80 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		BC3463AC18A8A2CD00CA2A80 /* UMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMTableViewCell.h; sourceTree = "<group>"; };
+		BC3463AD18A8A2CD00CA2A80 /* UMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMTableViewCell.m; sourceTree = "<group>"; };
+		BC3463B718A8B4CA00CA2A80 /* SNLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNLog.h; sourceTree = "<group>"; };
+		BC3463B818A8F72100CA2A80 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BC3463FB18A90D3900CA2A80 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		BC477C0518A4D9F100EA6E2F /* SNContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNContacts.h; sourceTree = "<group>"; };
+		BC477C0618A4D9F100EA6E2F /* SNContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNContacts.m; sourceTree = "<group>"; };
+		BC477C0918A4D9FC00EA6E2F /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
+		BCDF050418A3A0560063CE32 /* FetchiCon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchiCon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCDF050718A3A0560063CE32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BCDF050918A3A0560063CE32 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BCDF050B18A3A0560063CE32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		BCDF050F18A3A0560063CE32 /* FetchiCow-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FetchiCow-Info.plist"; sourceTree = "<group>"; };
+		BCDF050F18A3A0560063CE32 /* FetchiCon-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FetchiCon-Info.plist"; sourceTree = "<group>"; };
 		BCDF051118A3A0560063CE32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCDF051318A3A0560063CE32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BCDF051518A3A0560063CE32 /* FetchiCow-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FetchiCow-Prefix.pch"; sourceTree = "<group>"; };
+		BCDF051518A3A0560063CE32 /* FetchiCon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FetchiCon-Prefix.pch"; sourceTree = "<group>"; };
 		BCDF051618A3A0560063CE32 /* SNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNAppDelegate.h; sourceTree = "<group>"; };
 		BCDF051718A3A0560063CE32 /* SNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNAppDelegate.m; sourceTree = "<group>"; };
 		BCDF051A18A3A0560063CE32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCDF051C18A3A0560063CE32 /* SNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNViewController.h; sourceTree = "<group>"; };
 		BCDF051D18A3A0560063CE32 /* SNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNViewController.m; sourceTree = "<group>"; };
 		BCDF051F18A3A0560063CE32 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BCDF052518A3A0560063CE32 /* FetchiCowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchiCowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCDF052518A3A0560063CE32 /* FetchiConTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchiConTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCDF052618A3A0560063CE32 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		BCDF052E18A3A0560063CE32 /* FetchiCowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FetchiCowTests-Info.plist"; sourceTree = "<group>"; };
+		BCDF052E18A3A0560063CE32 /* FetchiConTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FetchiConTests-Info.plist"; sourceTree = "<group>"; };
 		BCDF053018A3A0560063CE32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCDF053218A3A0560063CE32 /* LocalNotificationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationTests.m; sourceTree = "<group>"; };
 		BCDF053C18A3B98D0063CE32 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -64,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3463B918A8F72100CA2A80 /* QuartzCore.framework in Frameworks */,
 				BCDF053F18A3B9B80063CE32 /* AddressBookUI.framework in Frameworks */,
 				BCDF053D18A3B98D0063CE32 /* AddressBook.framework in Frameworks */,
 				BCDF050A18A3A0560063CE32 /* CoreGraphics.framework in Frameworks */,
@@ -85,6 +121,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC34639C18A8A2CD00CA2A80 /* SwipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				BC34639D18A8A2CD00CA2A80 /* Constants.h */,
+				BC34639E18A8A2CD00CA2A80 /* NSMutableArray+SWUtilityButtons.h */,
+				BC34639F18A8A2CD00CA2A80 /* NSMutableArray+SWUtilityButtons.m */,
+				BC3463A018A8A2CD00CA2A80 /* SWCellScrollView.h */,
+				BC3463A118A8A2CD00CA2A80 /* SWCellScrollView.m */,
+				BC3463A218A8A2CD00CA2A80 /* SWLongPressGestureRecognizer.h */,
+				BC3463A318A8A2CD00CA2A80 /* SWLongPressGestureRecognizer.m */,
+				BC3463A418A8A2CD00CA2A80 /* SWTableViewCell-Info.plist */,
+				BC3463A518A8A2CD00CA2A80 /* SWTableViewCell-Prefix.pch */,
+				BC3463A618A8A2CD00CA2A80 /* SWTableViewCell.h */,
+				BC3463A718A8A2CD00CA2A80 /* SWTableViewCell.m */,
+				BC3463A818A8A2CD00CA2A80 /* SWUtilityButtonTapGestureRecognizer.h */,
+				BC3463A918A8A2CD00CA2A80 /* SWUtilityButtonTapGestureRecognizer.m */,
+				BC3463AA18A8A2CD00CA2A80 /* SWUtilityButtonView.h */,
+				BC3463AB18A8A2CD00CA2A80 /* SWUtilityButtonView.m */,
+				BC3463AC18A8A2CD00CA2A80 /* UMTableViewCell.h */,
+				BC3463AD18A8A2CD00CA2A80 /* UMTableViewCell.m */,
+			);
+			path = SwipeCell;
+			sourceTree = "<group>";
+		};
+		BC3463B618A8B4CA00CA2A80 /* SNLog */ = {
+			isa = PBXGroup;
+			children = (
+				BC3463B718A8B4CA00CA2A80 /* SNLog.h */,
+			);
+			path = SNLog;
+			sourceTree = "<group>";
+		};
+		BC477C0418A4D9F100EA6E2F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BC477C0518A4D9F100EA6E2F /* SNContacts.h */,
+				BC477C0618A4D9F100EA6E2F /* SNContacts.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BC477C0818A4D9FC00EA6E2F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BC3463FB18A90D3900CA2A80 /* Icon@2x.png */,
+				BC477C0918A4D9FC00EA6E2F /* circle@2x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		BC477C0B18A4DA4A00EA6E2F /* External Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BC3463B618A8B4CA00CA2A80 /* SNLog */,
+				BC34639C18A8A2CD00CA2A80 /* SwipeCell */,
+			);
+			path = "External Classes";
+			sourceTree = "<group>";
+		};
 		BCDF04FB18A3A0560063CE32 = {
 			isa = PBXGroup;
 			children = (
@@ -98,8 +193,8 @@
 		BCDF050518A3A0560063CE32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BCDF050418A3A0560063CE32 /* FetchiCow.app */,
-				BCDF052518A3A0560063CE32 /* FetchiCowTests.xctest */,
+				BCDF050418A3A0560063CE32 /* FetchiCon.app */,
+				BCDF052518A3A0560063CE32 /* FetchiConTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +202,7 @@
 		BCDF050618A3A0560063CE32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC3463B818A8F72100CA2A80 /* QuartzCore.framework */,
 				BCDF053E18A3B9B80063CE32 /* AddressBookUI.framework */,
 				BCDF053C18A3B98D0063CE32 /* AddressBook.framework */,
 				BCDF050718A3A0560063CE32 /* Foundation.framework */,
@@ -120,6 +216,9 @@
 		BCDF050D18A3A0560063CE32 /* LocalNotification */ = {
 			isa = PBXGroup;
 			children = (
+				BC477C0818A4D9FC00EA6E2F /* Assets */,
+				BC477C0B18A4DA4A00EA6E2F /* External Classes */,
+				BC477C0418A4D9F100EA6E2F /* Classes */,
 				BCDF051618A3A0560063CE32 /* SNAppDelegate.h */,
 				BCDF051718A3A0560063CE32 /* SNAppDelegate.m */,
 				BCDF051918A3A0560063CE32 /* Main.storyboard */,
@@ -134,10 +233,10 @@
 		BCDF050E18A3A0560063CE32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BCDF050F18A3A0560063CE32 /* FetchiCow-Info.plist */,
+				BCDF050F18A3A0560063CE32 /* FetchiCon-Info.plist */,
 				BCDF051018A3A0560063CE32 /* InfoPlist.strings */,
 				BCDF051318A3A0560063CE32 /* main.m */,
-				BCDF051518A3A0560063CE32 /* FetchiCow-Prefix.pch */,
+				BCDF051518A3A0560063CE32 /* FetchiCon-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,7 +253,7 @@
 		BCDF052D18A3A0560063CE32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BCDF052E18A3A0560063CE32 /* FetchiCowTests-Info.plist */,
+				BCDF052E18A3A0560063CE32 /* FetchiConTests-Info.plist */,
 				BCDF052F18A3A0560063CE32 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -163,9 +262,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BCDF050318A3A0560063CE32 /* FetchiCow */ = {
+		BCDF050318A3A0560063CE32 /* FetchiCon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BCDF053618A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCow" */;
+			buildConfigurationList = BCDF053618A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCon" */;
 			buildPhases = (
 				BCDF050018A3A0560063CE32 /* Sources */,
 				BCDF050118A3A0560063CE32 /* Frameworks */,
@@ -175,14 +274,14 @@
 			);
 			dependencies = (
 			);
-			name = FetchiCow;
+			name = FetchiCon;
 			productName = LocalNotification;
-			productReference = BCDF050418A3A0560063CE32 /* FetchiCow.app */;
+			productReference = BCDF050418A3A0560063CE32 /* FetchiCon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BCDF052418A3A0560063CE32 /* FetchiCowTests */ = {
+		BCDF052418A3A0560063CE32 /* FetchiConTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BCDF053918A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCowTests" */;
+			buildConfigurationList = BCDF053918A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiConTests" */;
 			buildPhases = (
 				BCDF052118A3A0560063CE32 /* Sources */,
 				BCDF052218A3A0560063CE32 /* Frameworks */,
@@ -193,9 +292,9 @@
 			dependencies = (
 				BCDF052B18A3A0560063CE32 /* PBXTargetDependency */,
 			);
-			name = FetchiCowTests;
+			name = FetchiConTests;
 			productName = LocalNotificationTests;
-			productReference = BCDF052518A3A0560063CE32 /* FetchiCowTests.xctest */;
+			productReference = BCDF052518A3A0560063CE32 /* FetchiConTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -213,7 +312,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BCDF04FF18A3A0560063CE32 /* Build configuration list for PBXProject "FetchiCow" */;
+			buildConfigurationList = BCDF04FF18A3A0560063CE32 /* Build configuration list for PBXProject "FetchiCon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -226,8 +325,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BCDF050318A3A0560063CE32 /* FetchiCow */,
-				BCDF052418A3A0560063CE32 /* FetchiCowTests */,
+				BCDF050318A3A0560063CE32 /* FetchiCon */,
+				BCDF052418A3A0560063CE32 /* FetchiConTests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,9 +336,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC477C0A18A4D9FC00EA6E2F /* circle@2x.png in Resources */,
+				BC3463FC18A90D3900CA2A80 /* Icon@2x.png in Resources */,
 				BCDF052018A3A0560063CE32 /* Images.xcassets in Resources */,
 				BCDF051218A3A0560063CE32 /* InfoPlist.strings in Resources */,
 				BCDF051B18A3A0560063CE32 /* Main.storyboard in Resources */,
+				BC3463B118A8A2CD00CA2A80 /* SWTableViewCell-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +361,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCDF051418A3A0560063CE32 /* main.m in Sources */,
+				BC3463B218A8A2CD00CA2A80 /* SWTableViewCell.m in Sources */,
+				BC3463B518A8A2CD00CA2A80 /* UMTableViewCell.m in Sources */,
+				BC3463B018A8A2CD00CA2A80 /* SWLongPressGestureRecognizer.m in Sources */,
+				BC3463AE18A8A2CD00CA2A80 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				BCDF051E18A3A0560063CE32 /* SNViewController.m in Sources */,
+				BC3463AF18A8A2CD00CA2A80 /* SWCellScrollView.m in Sources */,
 				BCDF051818A3A0560063CE32 /* SNAppDelegate.m in Sources */,
+				BC3463B418A8A2CD00CA2A80 /* SWUtilityButtonView.m in Sources */,
+				BC3463B318A8A2CD00CA2A80 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				BC477C0718A4D9F100EA6E2F /* SNContacts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +387,7 @@
 /* Begin PBXTargetDependency section */
 		BCDF052B18A3A0560063CE32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BCDF050318A3A0560063CE32 /* FetchiCow */;
+			target = BCDF050318A3A0560063CE32 /* FetchiCon */;
 			targetProxy = BCDF052A18A3A0560063CE32 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -387,11 +497,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ranganatha G V (VQY8F4L8AX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LocalNotification/FetchiCow-Prefix.pch";
-				INFOPLIST_FILE = "LocalNotification/FetchiCow-Info.plist";
-				PRODUCT_NAME = FetchiCow;
+				GCC_PREFIX_HEADER = "LocalNotification/FetchiCon-Prefix.pch";
+				INFOPLIST_FILE = "LocalNotification/FetchiCon-Info.plist";
+				PRODUCT_NAME = FetchiCon;
 				PROVISIONING_PROFILE = "5BEBBBEE-7B96-49FA-875C-99D5C9F5A729";
 				WRAPPER_EXTENSION = app;
 			};
@@ -402,11 +512,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ranganatha G V (VQY8F4L8AX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LocalNotification/FetchiCow-Prefix.pch";
-				INFOPLIST_FILE = "LocalNotification/FetchiCow-Info.plist";
-				PRODUCT_NAME = FetchiCow;
+				GCC_PREFIX_HEADER = "LocalNotification/FetchiCon-Prefix.pch";
+				INFOPLIST_FILE = "LocalNotification/FetchiCon-Info.plist";
+				PRODUCT_NAME = FetchiCon;
 				PROVISIONING_PROFILE = "5BEBBBEE-7B96-49FA-875C-99D5C9F5A729";
 				WRAPPER_EXTENSION = app;
 			};
@@ -428,8 +538,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "LocalNotificationTests/FetchiCowTests-Info.plist";
-				PRODUCT_NAME = FetchiCowTests;
+				INFOPLIST_FILE = "LocalNotificationTests/FetchiConTests-Info.plist";
+				PRODUCT_NAME = FetchiConTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -447,8 +557,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LocalNotification/LocalNotification-Prefix.pch";
-				INFOPLIST_FILE = "LocalNotificationTests/FetchiCowTests-Info.plist";
-				PRODUCT_NAME = FetchiCowTests;
+				INFOPLIST_FILE = "LocalNotificationTests/FetchiConTests-Info.plist";
+				PRODUCT_NAME = FetchiConTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -457,7 +567,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BCDF04FF18A3A0560063CE32 /* Build configuration list for PBXProject "FetchiCow" */ = {
+		BCDF04FF18A3A0560063CE32 /* Build configuration list for PBXProject "FetchiCon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BCDF053418A3A0560063CE32 /* Debug */,
@@ -466,7 +576,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BCDF053618A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCow" */ = {
+		BCDF053618A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BCDF053718A3A0560063CE32 /* Debug */,
@@ -475,7 +585,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BCDF053918A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiCowTests" */ = {
+		BCDF053918A3A0560063CE32 /* Build configuration list for PBXNativeTarget "FetchiConTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BCDF053A18A3A0560063CE32 /* Debug */,

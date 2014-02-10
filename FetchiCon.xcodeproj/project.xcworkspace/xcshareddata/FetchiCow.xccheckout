@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0F226EF1-E89D-4952-BAAA-75B1E8E269FC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FetchiCow</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>143B09B8-CC51-47A8-A891-9C0EAB7E3D13</key>
+		<string>https://github.com/ankitjain0211/FetchiCow.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FetchiCow.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>143B09B8-CC51-47A8-A891-9C0EAB7E3D13</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ankitjain0211/FetchiCow.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>143B09B8-CC51-47A8-A891-9C0EAB7E3D13</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>143B09B8-CC51-47A8-A891-9C0EAB7E3D13</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FetchiCow</string>
+		</dict>
+	</array>
+</dict>
+</plist>

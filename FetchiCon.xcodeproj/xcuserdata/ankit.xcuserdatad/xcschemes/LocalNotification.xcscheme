@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BCDF050318A3A0560063CE32"
-               BuildableName = "LocalNotification.app"
-               BlueprintName = "FetchiCow"
-               ReferencedContainer = "container:FetchiCow.xcodeproj">
+               BuildableName = "FetchiCow.app"
+               BlueprintName = "FetchiCon"
+               ReferencedContainer = "container:FetchiCon.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BCDF052418A3A0560063CE32"
-               BuildableName = "LocalNotificationTests.xctest"
-               BlueprintName = "FetchiCowTests"
-               ReferencedContainer = "container:FetchiCow.xcodeproj">
+               BuildableName = "FetchiCowTests.xctest"
+               BlueprintName = "FetchiConTests"
+               ReferencedContainer = "container:FetchiCon.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BCDF050318A3A0560063CE32"
-            BuildableName = "LocalNotification.app"
-            BlueprintName = "FetchiCow"
-            ReferencedContainer = "container:FetchiCow.xcodeproj">
+            BuildableName = "FetchiCow.app"
+            BlueprintName = "FetchiCon"
+            ReferencedContainer = "container:FetchiCon.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BCDF050318A3A0560063CE32"
-            BuildableName = "LocalNotification.app"
-            BlueprintName = "FetchiCow"
-            ReferencedContainer = "container:FetchiCow.xcodeproj">
+            BuildableName = "FetchiCow.app"
+            BlueprintName = "FetchiCon"
+            ReferencedContainer = "container:FetchiCon.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BCDF050318A3A0560063CE32"
-            BuildableName = "LocalNotification.app"
-            BlueprintName = "FetchiCow"
-            ReferencedContainer = "container:FetchiCow.xcodeproj">
+            BuildableName = "FetchiCow.app"
+            BlueprintName = "FetchiCon"
+            ReferencedContainer = "container:FetchiCon.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -12,5 +12,6 @@
 
 @property (nonatomic, retain) NSString *contactFirstName;
 @property (nonatomic, retain) NSString *contactNumber;
+@property (nonatomic, retain) NSData *contactImage;
 
 @end

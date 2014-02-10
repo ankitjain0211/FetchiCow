@@ -10,6 +10,6 @@
 
 @implementation SNContacts
 
-@synthesize contactFirstName, contactNumber;
+@synthesize contactFirstName, contactNumber, contactImage;
 
 @end
